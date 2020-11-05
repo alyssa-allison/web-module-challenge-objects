@@ -86,11 +86,11 @@ Using the reviews array above do the following:
   1. Following the same format (name, rating, feedback), add a new fictitious review object to the reviews array
   2. log the whole array to the console, make sure the new review is inside of it   
 */
-function newRating(name, rating, feedback){
-  return {name, rating, feedback};
+function newRating(array, name, rating, feedback){
+  array.push(name, rating, feedback)
+  return array;
 }
-newRating("Gerard Way", 5, "Great food, friendly staff.");
-reviews.push(newRating);
+console.log(newRating(reviews, "Gerard", 5, "Great food, friendly staff."));
 console.log(reviews);
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -98,8 +98,15 @@ Reyna's feedback is missing! Use what you know to do the following:
   1. Add this feedback to Reyna's rating - "this place is chill with really cool people, great for getting work done on weekdays"
   2. log the reviews array to the console to check your work
 */
-
-
+function addFeedback(array, reviewName, newFeedback){
+  for (i in array){
+    if (array[i].name.includes(reviewName)){
+      array[i].feedback = newFeedback;
+    }
+  }
+  return array;
+}
+console.log(reviews, "Reyna", "this place is chill with really cool people, great for getting work done on weekdays");
 
 
 
@@ -114,7 +121,7 @@ Use the getReviewByIndex function below to do the following:
 
 
 function getReviewByIndex(arr, index) {
-  return `${arr[0].name} gave the restaurant a ${arr[0].rating} star review, and their feedback was: ${arr[0].feedback}`
+  return `${arr[index].name} gave the restaurant a ${arr[index].rating} star review, and their feedback was: ${arr[index].feedback}`
 }
 getReviewByIndex(reviews, 0);
 
